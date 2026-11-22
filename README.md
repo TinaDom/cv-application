@@ -1,21 +1,45 @@
-<<<<<<< HEAD
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# CV Application
 
-Currently, two official plugins are available:
+A React-based CV Application built as part of The Odin Project.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- General Information section
+- Controlled form inputs using React state
+- Submit functionality to display entered information
+- Edit functionality to update submitted information
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies
 
-## Expanding the Oxlint configuration
+- React
+- JavaScript
+- HTML
+- CSS
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
-=======
-# cv-application
-React CV Application
->>>>>>> 847b3047443f1ba5b4e044e525e1d21bcfad9120
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/TinaDom/cv-application.git
+```
+
+Navigate into the project:
+
+```bash
+cd cv-application
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```

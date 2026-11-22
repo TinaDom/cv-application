@@ -2,7 +2,6 @@
 import { useState } from "react";
 
 function GeneralInfo() {
-    // State for the three input fields
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
