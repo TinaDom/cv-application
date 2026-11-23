@@ -4,7 +4,7 @@ import Experience from './components/Experience';
 
 function App() {
   return (
-    <main>
+    <main className="cv-container">
       <h1>CV Application</h1>
       <GeneralInfo />
       <Education />
