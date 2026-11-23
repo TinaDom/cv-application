@@ -7,12 +7,23 @@ function Education() {
     const [dateOfStudy, setDateOfStudy] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        setIsSubmitted(true);
+    }
+
+    function handleClear() {
+    setSchool('');
+    setTitleOfStudy('');
+    setDateOfStudy('');
+}
+
     return (
         <section>
             <h2>Education</h2>
 
             {!isSubmitted && (
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>
                         School:
                         <input
@@ -20,6 +31,7 @@ function Education() {
                             name="school"
                             value={school}
                             onChange={(e) => setSchool(e.target.value)}
+                            required
                         />
                     </label>
 
@@ -30,6 +42,7 @@ function Education() {
                             name="title"
                             value={titleOfStudy}
                             onChange={(e) => setTitleOfStudy(e.target.value)}
+                            required
                         />
                     </label>
 
@@ -40,14 +53,20 @@ function Education() {
                             name="date"
                             value={dateOfStudy}
                             onChange={(e) => setDateOfStudy(e.target.value)}
+                            required
                         />
                     </label>
 
-                    <button
-                        type="button"
-                        onClick={() => setIsSubmitted(true)}
-                    >
+                    <button type="submit">
                         Submit
+                    </button>
+
+                    <button 
+                    type="button"
+                    className="clear-button" 
+                    onClick={handleClear}
+                    >
+                        Clear Form
                     </button>
                 </form>
             )}

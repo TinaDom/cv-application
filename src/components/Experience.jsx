@@ -8,13 +8,28 @@ function Experience() {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [currentlyWorking, setCurrentlyWorking] = useState(false);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setIsSubmitted(true);
+    }
+
+    function handleClear() {
+    setCompanyName('');
+    setPositionTitle('');
+    setMainResponsibilities('');
+    setStartDate('');
+    setEndDate('');
+    setCurrentlyWorking(false);
+}
 
     return (
         <section>
             <h2>Experience</h2>
 
             {!isSubmitted && (
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>
                         Company Name:
                         <input
@@ -22,6 +37,7 @@ function Experience() {
                             name="company"
                             value={companyName}
                             onChange={(e) => setCompanyName(e.target.value)}
+                            required
                         />
                     </label>
 
@@ -32,16 +48,17 @@ function Experience() {
                             name="position"
                             value={positionTitle}
                             onChange={(e) => setPositionTitle(e.target.value)}
+                            required
                         />
                     </label>
 
                     <label>
                         Main Responsibilities:
-                        <input
-                            type="text"
+                        <textarea
                             name="responsibilities"
                             value={mainResponsibilities}
                             onChange={(e) => setMainResponsibilities(e.target.value)}
+                            required
                         />
                     </label>
 
@@ -52,24 +69,42 @@ function Experience() {
                             name="startDate"
                             value={startDate}
                             onChange={(e) => setStartDate(e.target.value)}
+                            required
                         />
                     </label>
 
+                   {!currentlyWorking && (
                     <label>
                         End Date:
                         <input
-                            type="date"
-                            name="endDate"
-                            value={endDate}
-                            onChange={(e) => setEndDate(e.target.value)}
+                        type="date"
+                        name="endDate"
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                        required
                         />
+                        </label>
+                    )}
+
+                    <label>
+                        <input
+                        type="checkbox"
+                        checked={currentlyWorking}
+                        onChange={(e) => setCurrentlyWorking(e.target.checked)}
+                        />
+                        I currently work here
                     </label>
 
-                    <button
-                        type="button"
-                        onClick={() => setIsSubmitted(true)}
-                    >
+                    <button type="submit">
                         Submit
+                    </button>
+
+                    <button 
+                    type="button" 
+                    className="clear-button"
+                    onClick={handleClear}
+                    >
+                    Clear Form
                     </button>
                 </form>
             )}
@@ -81,7 +116,7 @@ function Experience() {
                     <p>Position Title: {positionTitle}</p>
                     <p>Main Responsibilities: {mainResponsibilities}</p>
                     <p>Start Date: {startDate}</p>
-                    <p>End Date: {endDate}</p>
+                    <p>End Date: {currentlyWorking ? "Present" : endDate}</p>
 
                     <button
                         type="button"
